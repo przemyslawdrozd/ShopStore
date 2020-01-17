@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ItemService {
@@ -24,4 +25,19 @@ public class ItemService {
         return (List<Item>) itemRepository.findAll();
     }
 
+    public Optional<Item> getItemById(Integer id) {
+        return itemRepository.findById(id);
+    }
+
+    public void addNewItem(Item newItem) {
+        itemRepository.save(newItem);
+    }
+
+    public void updateItem(Item item) {
+        itemRepository.save(item);
+    }
+
+    public void deleteById(Integer id) {
+        itemRepository.deleteById(id);
+    }
 }
