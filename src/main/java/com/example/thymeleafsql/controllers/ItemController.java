@@ -60,4 +60,13 @@ public class ItemController {
         model.addAttribute("items", itemService.getAll());
         return "customer";
     }
+
+    @RequestMapping("/selectedItemId")
+    public String selectedItemId(Integer id) {
+        Optional<Item> itemById = itemService.getItemById(id);
+        Item item = itemById.get();
+        item.sell(1);
+        itemService.updateItem(item);
+        return "redirect:/items/getAllCustomerMode";
+    }
 }

@@ -23,4 +23,12 @@ public class Item {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private String delivery;
+
+    public boolean sell(int amount) {
+        if (quantity >= amount) {
+            this.quantity -= amount;
+            return true;
+        }
+        return false;
+    }
 }
