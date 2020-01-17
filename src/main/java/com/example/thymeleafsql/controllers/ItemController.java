@@ -23,12 +23,8 @@ public class ItemController {
     }
 
     @GetMapping("/getAll")
-    public String test(Model model) {
+    public String getAll(Model model) {
         model.addAttribute("items", itemService.getAll());
-
-        String username = "Przemo";
-        model.addAttribute("username", username);
-
         return "items";
     }
 
@@ -57,5 +53,11 @@ public class ItemController {
     public String deleteItem(Integer id) {
         itemService.deleteById(id);
         return "redirect:/items/getAll";
+    }
+
+    @GetMapping("/getAllCustomerMode")
+    public String getAllCustomerMode(Model model) {
+        model.addAttribute("items", itemService.getAll());
+        return "customer";
     }
 }

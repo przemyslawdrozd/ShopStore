@@ -33,6 +33,6 @@ public class HomeController {
 
     @GetMapping("/enter")
     public String enter() {
-        return "redirect:/items/getAll";
+        return "redirect:/items/getAllCustomerMode";
     }
 }
