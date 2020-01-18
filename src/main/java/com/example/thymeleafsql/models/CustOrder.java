@@ -7,6 +7,8 @@ import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -21,6 +23,6 @@ public class CustOrder {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private String delivery;
 
-    @ManyToOne
-    private Item item;
+    @OneToMany(mappedBy = "order")
+    private List<Item> items;
 }

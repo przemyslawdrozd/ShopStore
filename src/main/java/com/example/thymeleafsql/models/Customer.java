@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,7 +22,7 @@ public class Customer {
     private String lastName;
     private String email;
 
-    @ManyToOne
-    private CustOrder custOrder;
+    @OneToMany(mappedBy = "items")
+    private List<CustOrder> orders;
 
 }
