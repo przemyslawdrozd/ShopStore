@@ -1,17 +1,13 @@
 package com.example.thymeleafsql.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-@ToString
+@Getter
 @Entity
 public class Customer {
 
@@ -21,8 +17,6 @@ public class Customer {
     private String firstName;
     private String lastName;
     private String email;
-
     @OneToMany(mappedBy = "items")
     private List<CustOrder> orders;
-
 }

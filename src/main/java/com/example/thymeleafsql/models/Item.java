@@ -6,8 +6,8 @@ import javax.persistence.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-@ToString
+@Getter
+@Setter
 @Entity
 public class Item {
 
@@ -17,12 +17,8 @@ public class Item {
     private String name;
     private Double price;
     private Integer quantity;
-
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private String delivery;
-
-    @ManyToOne
-    private CustOrder order;
 
     public boolean sell(int amount) {
         if (quantity >= amount) {
